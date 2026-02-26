@@ -18,11 +18,11 @@ def solveivp():
     sol=solve_ivp(F,tspan,Q0,method='RK45',args=(R,L,C), dense_output=True)
     return sol
 
-sol= solveivp()
+answer= solveivp()
 
 
 def q(t):
-    return sol.sol(t)[0]
+    return answer.sol(t)[0]
 
 def framatEulerSystem(F, tspan, U0, h):
     
@@ -71,8 +71,8 @@ def konvergensstudie():
         h=(tspan[1]-tspan[0])/N
         tk,Uk = framatEulerSystem(lambda t, U:F(t,U,R,L,C),tspan, U0, h)
 
-        q_ref=sol.sol(20)[0]
-        i_ref=sol.sol(20)[1]
+        q_ref=answer.sol(20)[0]
+        i_ref=answer.sol(20)[1]
 
         fel_q=np.abs(Uk[-1,0]-q_ref)
         fel_i=np.abs(Uk[-1,1]-i_ref)
