@@ -16,7 +16,8 @@ def i():
     C=0.5
     R=1
     svar=solve_ivp(F,tspan,Q0,method='RK45',args=(R,L,C))
-    print(svar)
+    print(svar.t)
+    print(svar.y)
 
 def ii():
     tspan=(0,20)
@@ -25,6 +26,7 @@ def ii():
     C=0.5
     R=0
     svar=solve_ivp(F,tspan,Q0,method='RK45',args=(R,L,C))
-    print(svar)
+    print(svar.t)
+    print(svar.y)
 
-i()
+ii()
